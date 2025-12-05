@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agenda Saúde - Agendamento de Consultas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Protótipo de sistema de agendamento de consultas médicas, desenvolvido para a disciplina de Interface Humano-Computador."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
+
+  <header class="topbar">
+    <div class="container topbar-content">
+      <div class="logo" aria-label="Logo Agenda Saúde">
+        <span class="logo-icon">🩺</span>
+        <span class="logo-text">Agenda Saúde</span>
+      </div>
+
+      <nav aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="#profissionais">Profissionais</a></li>
+          <li><a href="#agendamentos">Meus agendamentos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+        </ul>
+      </nav>
+
+      <button class="btn-contraste" type="button" id="toggle-contrast">
+        Alto contraste
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Agende suas consultas sem complicação</h1>
+          <p>
+            Encontre o profissional ideal, escolha o melhor horário e organize
+            sua saúde em poucos cliques.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#profissionais" class="btn btn-primary">
+              Ver profissionais
+            </a>
+            <a href="#agendamentos" class="btn btn-outline">
+              Meus agendamentos
+            </a>
+          </div>
+
+          <ul class="hero-list">
+            <li>✔ Interface simples e intuitiva</li>
+            <li>✔ Foco em acessibilidade e usabilidade</li>
+            <li>✔ Protótipo funcional para testes de IHC</li>
+          </ul>
+        </div>
+
+        <div class="hero-side">
+          <div class="hero-illustration" aria-hidden="true">
+            <img
+              src="img/hero-saude.svg"
+              alt="Ilustração de profissional de saúde usando computador"
+            />
+          </div>
+
+          <div class="hero-card">
+            <p class="hero-card-title">Próximo agendamento</p>
+            <p class="hero-card-body">
+              Nenhum agendamento selecionado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="profissionais" class="section">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-header-main">
+            <h2>Profissionais disponíveis</h2>
+            <p>Filtre por especialidade ou pesquise pelo nome.</p>
+          </div>
+          <div class="section-header-illustration">
+            <img
+              src="img/consulta-online.svg"
+              alt="Ilustração de consulta online em dispositivo digital"
+            />
+          </div>
+        </header>
+
+        <form class="filtros" aria-label="Filtros de profissionais">
+          <div class="campo-form">
+            <label for="filtro-especialidade">Especialidade</label>
+            <select id="filtro-especialidade">
+              <option value="todas">Todas</option>
+              <option value="cardiologia">Cardiologia</option>
+              <option value="pediatria">Pediatria</option>
+              <option value="dermatologia">Dermatologia</option>
+              <option value="clinico">Clínico geral</option>
+            </select>
+          </div>
+
+          <div class="campo-form">
+            <label for="filtro-nome">Buscar por nome</label>
+            <input
+              type="search"
+              id="filtro-nome"
+              placeholder="Ex: Ana, João..."
+            />
+          </div>
+
+          <button type="button" class="btn" id="btn-limpar-filtros">
+            Limpar filtros
+          </button>
+        </form>
+
+        <div
+          class="cards-grid"
+          id="lista-profissionais"
+          aria-live="polite"
+          aria-label="Lista de profissionais para agendamento"
+        ></div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container section-split">
+        <div class="section-split-text">
+          <header class="section-header">
+            <h2>Agendar consulta</h2>
+            <p>Preencha os dados abaixo para confirmar o agendamento.</p>
+          </header>
+
+          <form id="form-agendamento" class="form-agendamento">
+            <div class="campo-form">
+              <label for="nome-paciente">Nome do paciente</label>
+              <input
+                type="text"
+                id="nome-paciente"
+                required
+                placeholder="Digite o nome completo"
+              />
+            </div>
+
+            <div class="campo-form">
+              <label for="profissional-selecionado">Profissional</label>
+              <input
+                type="text"
+                id="profissional-selecionado"
+                readonly
+                placeholder="Selecione um profissional na lista acima"
+                aria-describedby="ajuda-profissional"
+              />
+              <small id="ajuda-profissional">
+                Clique em "Agendar" em um dos profissionais para preencher este
+                campo.
+              </small>
+            </div>
+
+            <div class="grid-2">
+              <div class="campo-form">
+                <label for="data-agendamento">Data</label>
+                <input type="date" id="data-agendamento" required />
+              </div>
+
+              <div class="campo-form">
+                <label for="hora-agendamento">Horário</label>
+                <input type="time" id="hora-agendamento" required />
+              </div>
+            </div>
+
+            <div class="campo-form">
+              <label for="observacoes">Observações (opcional)</label>
+              <textarea
+                id="observacoes"
+                rows="3"
+                placeholder="Ex.: consulta de retorno, dor específica, instruções..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Confirmar agendamento
+            </button>
+
+            <p
+              id="mensagem-feedback"
+              class="mensagem-feedback"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+
+        <div class="section-split-illustration">
+          <img
+            src="img/agenda-digital.svg"
+            alt="Ilustração de agenda digital com horários marcados"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="agendamentos" class="section">
+      <div class="container">
+        <header class="section-header">
+          <h2>Meus agendamentos</h2>
+          <p>Visualize rapidamente os horários que você já marcou.</p>
+        </header>
+
+        <ul
+          id="lista-agendamentos"
+          class="lista-agendamentos"
+          aria-live="polite"
+        ></ul>
+
+        <div class="agendamentos-actions">
+          <button
+            type="button"
+            class="btn btn-outline"
+            id="btn-limpar-agendamentos"
+          >
+            Limpar todos os agendamentos
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section section-alt">
+      <div class="container section-split section-sobre">
+        <div class="section-split-text">
+          <header class="section-header">
+            <h2>Sobre este protótipo</h2>
+          </header>
+          <p>
+            O <strong>Agenda Saúde</strong> é um protótipo funcional
+            desenvolvido para a disciplina de
+            <strong>Interface Humano-Computador (IHC)</strong>, com foco em:
+          </p>
+          <ul class="sobre-list">
+            <li>Aplicação prática de conceitos de usabilidade e UX.</li>
+            <li>Exploração de acessibilidade, como modo de alto contraste.</li>
+            <li>
+              Validação de fluxos de agendamento através de testes com usuários
+              reais ou fictícios (personas).
+            </li>
+          </ul>
+          <p>
+            O sistema foi implementado utilizando
+            <strong>HTML, CSS e JavaScript</strong>, com persistência local via
+            <code>localStorage</code>, permitindo simular o uso de um sistema
+            real de agendamentos.
+          </p>
+        </div>
+
+        <div class="section-split-illustration">
+          <img
+            src="img/sobre-prototipo.svg"
+            alt="Ilustração de pessoas analisando telas de interface"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-content">
+      <p>&copy; 2025 - Agenda Saúde (Protótipo acadêmico)</p>
+      <p><small>Disciplina de IHC - Curso de Ciência da Computação</small></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
