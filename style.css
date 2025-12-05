@@ -1,0 +1,484 @@
+:root {
+  --cor-fundo: #f5f7fb;
+  --cor-fundo-alt: #ffffff;
+  --cor-primaria: #2563eb;
+  --cor-primaria-escura: #1d4ed8;
+  --cor-texto: #111827;
+  --cor-texto-suave: #6b7280;
+  --cor-borda: #e5e7eb;
+  --radius: 12px;
+  --shadow-suave: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+/* Alto contraste */
+body.alto-contraste {
+  --cor-fundo: #000000;
+  --cor-fundo-alt: #000000;
+  --cor-primaria: #ffff00;
+  --cor-primaria-escura: #facc15;
+  --cor-texto: #ffffff;
+  --cor-texto-suave: #e5e7eb;
+  --cor-borda: #ffffff;
+}
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.5;
+}
+
+/* Link de pular conteúdo */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  z-index: 1000;
+  font-size: 0.9rem;
+}
+.skip-link:focus {
+  left: 8px;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--cor-fundo-alt);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.topbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.logo-icon {
+  font-size: 1.6rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  color: var(--cor-primaria);
+}
+
+.btn-contraste {
+  border-radius: 999px;
+  border: 1px solid var(--cor-borda);
+  padding: 8px 14px;
+  background: var(--cor-fundo-alt);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* Hero */
+.hero {
+  padding: 28px 0 24px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  max-width: 460px;
+  color: var(--cor-texto-suave);
+  margin-bottom: 16px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+
+.hero-list li + li {
+  margin-top: 4px;
+}
+
+.hero-side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-illustration {
+  background-color: var(--cor-fundo-alt);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow-suave);
+}
+
+.hero-illustration img {
+  width: 100%;
+  display: block;
+}
+
+.hero-card {
+  background: var(--cor-fundo-alt);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-suave);
+}
+
+.hero-card-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.hero-card-body {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+
+/* Seções */
+.section {
+  padding: 24px 0;
+}
+
+.section-alt {
+  background-color: var(--cor-fundo-alt);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.section-header-main h2 {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+}
+
+.section-header-main p {
+  margin: 0;
+  color: var(--cor-texto-suave);
+}
+
+.section-header > h2 {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+}
+
+.section-header > p {
+  margin: 0;
+  color: var(--cor-texto-suave);
+}
+
+.section-header-illustration img {
+  max-height: 80px;
+  display: block;
+}
+
+/* Layouts de divisão */
+.section-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.section-split-illustration img {
+  width: 100%;
+  display: block;
+}
+
+/* Botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background-color: var(--cor-fundo-alt);
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--cor-primaria);
+  color: #ffffff;
+  border-color: var(--cor-primaria);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--cor-primaria-escura);
+  border-color: var(--cor-primaria-escura);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background-color: rgba(37, 99, 235, 0.08);
+}
+
+/* Formulários e filtros */
+.form-agendamento,
+.filtros {
+  background-color: var(--cor-fundo-alt);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-suave);
+  margin-bottom: 16px;
+}
+
+.filtros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.campo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+}
+
+.campo-form label {
+  font-weight: 600;
+}
+
+.campo-form input,
+.campo-form select,
+.campo-form textarea {
+  border-radius: 8px;
+  border: 1px solid var(--cor-borda);
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.campo-form textarea {
+  resize: vertical;
+}
+
+.campo-form small {
+  color: var(--cor-texto-suave);
+  font-size: 0.8rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.mensagem-feedback {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+/* Cards de profissionais */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.card-profissional {
+  background-color: var(--cor-fundo-alt);
+  border-radius: var(--radius);
+  padding: 14px;
+  border: 1px solid var(--cor-borda);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-profissional-nome {
+  font-weight: 600;
+}
+
+.card-profissional-especialidade {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+}
+
+.card-profissional-info {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+.card-profissional-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Lista de agendamentos */
+.lista-agendamentos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-agendamento {
+  background-color: var(--cor-fundo-alt);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  border: 1px solid var(--cor-borda);
+  font-size: 0.9rem;
+}
+
+.item-agendamento strong {
+  display: block;
+}
+
+.item-agendamento span {
+  display: block;
+  margin-top: 2px;
+  color: var(--cor-texto-suave);
+}
+
+.agendamentos-actions {
+  margin-top: 8px;
+}
+
+/* Sobre */
+.section-sobre .sobre-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 8px 0 8px;
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+/* Rodapé */
+.rodape {
+  margin-top: 24px;
+  border-top: 1px solid var(--cor-borda);
+  padding: 14px 0 18px;
+  background-color: var(--cor-fundo-alt);
+}
+
+.rodape-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .hero-grid,
+  .section-split {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-header-illustration {
+    align-self: stretch;
+  }
+
+  .section-header-illustration img {
+    max-height: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar-content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-list {
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .form-agendamento,
+  .filtros {
+    padding: 12px;
+  }
+}
