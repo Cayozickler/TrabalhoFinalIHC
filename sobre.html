@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sobre - Agenda Saúde</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="description" content="Conheça Agenda Saúde: um protótipo de sistema para agendamento de consultas médicas, desenvolvido para a disciplina de Interface Humano-Computador." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="sobre.css" />
+</head>
+<body>
+  <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
+
+  <header class="topbar">
+    <div class="container topbar-content">
+      <!-- 1. Calendário/Data/Hora -->
+      <div class="topbar-datetime">
+        <span class="topbar-date" id="topbar-date"></span>
+        <span class="topbar-time" id="topbar-time"></span>
+      </div>
+
+      <!-- 2. Logo + Navegação -->
+      <nav aria-label="Navegação principal">
+        <a href="index.html" class="logo" aria-label="Voltar para Agenda Saúde">
+          <span class="logo-icon">🩺</span>
+          <span class="logo-text">Agenda Saúde</span>
+        </a>
+        <ul class="nav-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="profissionais.html">Profissionais</a></li>
+          <li><a href="agendamentos.html">Meus agendamentos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
+
+      <!-- 3. Botão de Acessibilidade -->
+      <div class="accessibility-buttons">
+        <button class="btn-acessibilidade" type="button" id="toggle-accessibility" title="Abrir menu de acessibilidade" aria-label="Acessibilidade">
+          ♿ Acessibilidade
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Popup de Acessibilidade (Fora do header para centralizar na tela) -->
+  <div id="accessibility-popup" class="accessibility-popup hidden">
+    <div class="popup-content">
+      <button class="popup-close" id="popup-close" title="Fechar">&times;</button>
+      <h3>♿ Opções de Acessibilidade</h3>
+      <p style="margin: 0 0 20px 0; color: var(--cor-texto-suave); font-size: 0.9rem;">Personalize a aparência para melhor visualização</p>
+      
+      <div class="popup-option">
+        <label for="modo-cor-select">Modo de Cor:</label>
+        <select id="modo-cor-select" class="select-modo-cor">
+          <option value="normal">Normal</option>
+          <option value="alto-contraste">Alto Contraste</option>
+          <option value="protanopia">Protanopia (Vermelho-Verde)</option>
+          <option value="deuteranopia">Deuteranopia (Verde)</option>
+          <option value="tritanopia">Tritanopia (Azul-Amarelo)</option>
+        </select>
+      </div>
+      
+      <div class="popup-option">
+        <label for="toggle-miopia-switch">Modo Miopia (Fontes Maiores)</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-miopia-switch" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <main id="conteudo-principal">
+    <section class="section section-alt">
+      <div class="container">
+        <header class="section-header">
+          <h2>Sobre este Protótipo</h2>
+          <p>Um projeto acadêmico focado em Interface Humano-Computador e usabilidade.</p>
+        </header>
+
+        <div class="sobre-intro">
+          <p>
+            O <strong>Agenda Saúde</strong> é um protótipo funcional desenvolvido para a 
+            disciplina de <strong>Interface Humano-Computador (IHC)</strong>, com foco em:
+          </p>
+          <ul class="sobre-list">
+            <li>Aplicação prática de conceitos de usabilidade e UX</li>
+            <li>Exploração de acessibilidade com modo de alto contraste</li>
+            <li>Validação de fluxos através de personas fictícias</li>
+          </ul>
+          <p>
+            Implementado em <strong>HTML, CSS e JavaScript</strong> com persistência local 
+            via <code>localStorage</code>, simulando um sistema real de agendamentos.
+          </p>
+        </div>
+
+        <h3 class="sobre-subtitle">Personas - Prioridades e Necessidades</h3>
+        <p class="sobre-description">
+          O projeto foi desenvolvido considerando 5 personas principais com objetivos e 
+          necessidades distintas no sistema de agendamento:
+        </p>
+
+        <!-- Grid de Personas (preenchido dinamicamente por script.js) -->
+        <div id="personas-grid"></div>
+
+        <!-- Seção de Conceitos -->
+        <h3 class="sobre-subtitle">Conceitos de IHC Aplicados</h3>
+        <div class="sobre-intro">
+          <ul class="sobre-list">
+            <li><strong>Usabilidade:</strong> Interface simples, clara e intuitiva para usuários leigos</li>
+            <li><strong>Acessibilidade:</strong> Alto contraste, navegação por teclado, skip links, ARIA labels</li>
+            <li><strong>Feedback:</strong> Mensagens de status, confirmações e validações em tempo real</li>
+            <li><strong>Responsividade:</strong> Funciona em desktop, tablet e mobile</li>
+            <li><strong>Persistência:</strong> localStorage para manter dados entre sessões</li>
+            <li><strong>Animações:</strong> Transições suaves para melhorar experiência visual</li>
+          </ul>
+        </div>
+
+        <!-- Seção Tecnológica -->
+        <h3 class="sobre-subtitle">Tecnologias Utilizadas</h3>
+        <div class="sobre-intro">
+          <ul class="sobre-list">
+            <li><strong>HTML5:</strong> Estrutura semântica e acessível</li>
+            <li><strong>CSS3:</strong> Estilização responsiva com variáveis CSS e animações</li>
+            <li><strong>JavaScript ES6+:</strong> Lógica de negócio sem dependências externas</li>
+            <li><strong>localStorage:</strong> Persistência de dados no navegador</li>
+            <li><strong>SVG:</strong> Ilustrações vetoriais escaláveis</li>
+          </ul>
+        </div>
+
+        <div class="section-actions">
+          <a href="index.html" class="btn btn-outline">← Voltar ao Início</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Agenda Saúde - Protótipo de Interface Humano-Computador</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

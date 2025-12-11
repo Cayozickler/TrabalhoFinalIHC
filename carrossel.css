@@ -1,0 +1,119 @@
+/* ======================================================================
+   CARROSSEL.CSS - Carrossel de profissionais
+   ====================================================================== */
+
+/* ======== CONTAINER PRINCIPAL ======== */
+.carrossel-container {
+  position: relative;
+  width: 100%;
+  margin: var(--espacamento-xl) 0;
+  padding: var(--espacamento-xl) 0;
+}
+
+/* ======== WRAPPER COM SCROLL ======== */
+.carrossel-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: var(--espacamento-lg) 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cor-primaria) var(--cor-borda);
+}
+
+/* Scrollbar customizado */
+.carrossel-wrapper::-webkit-scrollbar {
+  height: 10px;
+}
+
+.carrossel-wrapper::-webkit-scrollbar-track {
+  background: var(--cor-borda);
+  border-radius: var(--radius-sm);
+  margin: 0 var(--espacamento-lg);
+}
+
+.carrossel-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-primaria-escura));
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--cor-fundo);
+}
+
+.carrossel-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--cor-primaria-escura);
+}
+
+/* ======== TRILHA DO CARROSSEL ======== */
+.carrossel-track {
+  display: flex;
+  gap: var(--espacamento-lg);
+  padding: var(--espacamento-sm);
+  min-width: max-content;
+}
+
+/* Botões ocultos - navegação por scroll */
+.carrossel-btn {
+  display: none;
+}
+
+/* ======== CARDS NO CARROSSEL ======== */
+.carrossel-track .card-profissional {
+  min-width: 340px;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: var(--shadow-media);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: linear-gradient(145deg, #e8edf5, var(--cor-fundo-alt));
+  transition: all var(--transicao-normal);
+}
+
+.carrossel-track .card-profissional::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.carrossel-track .card-profissional:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--cor-primaria);
+  transform: translateY(-4px) scale(1.02);
+}
+
+.carrossel-track .card-profissional > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ======== RESPONSIVO ======== */
+@media (max-width: 768px) {
+  .carrossel-wrapper {
+    padding: var(--espacamento-lg) var(--espacamento-2xl);
+  }
+
+  .carrossel-track .card-profissional {
+    min-width: 280px;
+  }
+}
+
+/* ======== ANIMAÇÕES ======== */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

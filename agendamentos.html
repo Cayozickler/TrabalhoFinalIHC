@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agendamentos - Agenda Saúde</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="description" content="Gerencie seus agendamentos de consultas. Visualize, altere ou cancele seus compromissos médicos de forma fácil e rápida." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="agendamentos.css" />
+  <link rel="stylesheet" href="timeline.css" />
+</head>
+<body>
+  <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
+
+  <header class="topbar">
+    <div class="container topbar-content">
+      <!-- 1. Calendário/Data/Hora -->
+      <div class="topbar-datetime">
+        <span class="topbar-date" id="topbar-date"></span>
+        <span class="topbar-time" id="topbar-time"></span>
+      </div>
+
+      <!-- 2. Logo + Navegação -->
+      <nav aria-label="Navegação principal">
+        <a href="index.html" class="logo" aria-label="Voltar para Agenda Saúde">
+          <span class="logo-icon">🩺</span>
+          <span class="logo-text">Agenda Saúde</span>
+        </a>
+        <ul class="nav-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="profissionais.html">Profissionais</a></li>
+          <li><a href="agendamentos.html">Meus agendamentos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
+
+      <!-- 3. Botão de Acessibilidade -->
+      <div class="accessibility-buttons">
+        <button class="btn-acessibilidade" type="button" id="toggle-accessibility" title="Abrir menu de acessibilidade" aria-label="Acessibilidade">
+          ♿ Acessibilidade
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Popup de Acessibilidade (Fora do header para centralizar na tela) -->
+  <div id="accessibility-popup" class="accessibility-popup hidden">
+    <div class="popup-content">
+      <button class="popup-close" id="popup-close" title="Fechar">&times;</button>
+      <h3>♿ Opções de Acessibilidade</h3>
+      <p style="margin: 0 0 20px 0; color: var(--cor-texto-suave); font-size: 0.9rem;">Personalize a aparência para melhor visualização</p>
+      
+      <div class="popup-option">
+        <label for="modo-cor-select">Modo de Cor:</label>
+        <select id="modo-cor-select" class="select-modo-cor">
+          <option value="normal">Normal</option>
+          <option value="alto-contraste">Alto Contraste</option>
+          <option value="protanopia">Protanopia (Vermelho-Verde)</option>
+          <option value="deuteranopia">Deuteranopia (Verde)</option>
+          <option value="tritanopia">Tritanopia (Azul-Amarelo)</option>
+        </select>
+      </div>
+      
+      <div class="popup-option">
+        <label for="toggle-miopia-switch">Modo Miopia (Fontes Maiores)</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-miopia-switch" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <main id="conteudo-principal">
+    <section class="section">
+      <div class="container">
+        <header class="section-header">
+          <h2>Meus Agendamentos</h2>
+          <p>Gerencie suas consultas médicas de forma fácil e rápida.</p>
+        </header>
+
+        <!-- Abas de navegação -->
+        <div class="agendamentos-tabs">
+          <button type="button" class="tab-btn active" data-tab="novo" id="tab-novo">
+            📅 Nova Consulta
+          </button>
+          <button type="button" class="tab-btn" data-tab="lista" id="tab-lista">
+            📋 Minhas Consultas
+          </button>
+        </div>
+
+        <!-- Conteúdo: Agendar Nova Consulta -->
+        <div class="tab-content active" id="content-novo">
+          <div class="agendamento-grid">
+            <!-- Formulário -->
+            <div class="agendamento-form-wrapper">
+              <h3 class="form-title">Agendar nova consulta</h3>
+              
+              <form id="form-agendamento" class="form-agendamento">
+                <div class="campo-form">
+                  <label for="nome-paciente">Nome do paciente</label>
+                  <input
+                    type="text"
+                    id="nome-paciente"
+                    required
+                    placeholder="Digite seu nome completo"
+                  />
+                </div>
+
+                <div class="campo-form">
+                  <label for="profissional-selecionado">Profissional</label>
+                  <input
+                    type="text"
+                    id="profissional-selecionado"
+                    readonly
+                    placeholder="Selecione um profissional"
+                  />
+                  <small class="campo-destaque">💡 Clique em "Agendar" em um profissional para preencher este campo.</small>
+                </div>
+
+                <div class="form-row">
+                  <div class="campo-form">
+                    <label for="data-agendamento">Data</label>
+                    <input type="date" id="data-agendamento" required />
+                  </div>
+
+                  <div class="campo-form">
+                    <label for="hora-agendamento">Horário</label>
+                    <input type="time" id="hora-agendamento" required />
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                  Confirmar Agendamento
+                </button>
+
+                <p id="mensagem-feedback" class="mensagem-feedback" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <!-- Preview da consulta -->
+            <div class="consulta-preview">
+              <h3 class="preview-title">Resumo do Agendamento</h3>
+              
+              <div class="preview-card" id="preview-card">
+                <div class="preview-empty">
+                  <div class="preview-icon">📋</div>
+                  <p>Preencha o formulário para ver o resumo</p>
+                </div>
+              </div>
+
+              <div class="preview-info" id="preview-info" style="display: none;">
+                <div class="info-row">
+                  <span class="info-label">📅 Data</span>
+                  <span class="info-value" id="preview-data">-</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">🕐 Horário</span>
+                  <span class="info-value" id="preview-hora">-</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">👤 Paciente</span>
+                  <span class="info-value" id="preview-paciente">-</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">👨‍⚕️ Profissional</span>
+                  <span class="info-value" id="preview-profissional">-</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conteúdo: Lista de Agendamentos -->
+        <div class="tab-content" id="content-lista">
+          <div class="lista-wrapper">
+            <div class="lista-header">
+              <h3>Consultas agendadas</h3>
+              <p>Visualize e gerencie seus agendamentos</p>
+            </div>
+
+            <ul id="lista-agendamentos" class="lista-agendamentos" aria-live="polite"></ul>
+
+            <div class="lista-empty" id="lista-empty">
+              <div class="empty-icon">📋</div>
+              <h4>Nenhum agendamento encontrado</h4>
+              <p>Você ainda não possui consultas marcadas.</p>
+              <a href="profissionais.html" class="btn btn-primary">
+                Ver Profissionais Disponíveis
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-actions">
+          <a href="index.html" class="btn btn-outline">← Voltar ao Início</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Agenda Saúde - Protótipo de Interface Humano-Computador</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

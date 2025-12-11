@@ -2,15 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Agenda Saúde - Agendamento de Consultas</title>
+  <title>Profissionais - Agenda Saúde</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta
-    name="description"
-    content="Protótipo de sistema de agendamento de consultas médicas, desenvolvido para a disciplina de Interface Humano-Computador."
-  />
+  <meta name="description" content="Consulte lista completa de profissionais de saúde disponíveis. Filtre por especialidade e encontre o melhor profissional para suas necessidades." />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="profissionais.css" />
+  <link rel="stylesheet" href="carrossel.css" />
 </head>
 <body>
   <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
@@ -75,51 +73,60 @@
   </div>
 
   <main id="conteudo-principal">
-    <!-- Landing Page -->
-    <section class="hero landing-page">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <h1>Agende suas consultas sem complicação</h1>
-          <p>
-            Encontre o profissional ideal, escolha o melhor horário e organize
-            sua saúde em poucos cliques.
-          </p>
+    <section id="profissionais" class="section">
+      <div class="container">
+        <header class="section-header">
+          <h2>Profissionais disponíveis</h2>
+          <p>Filtre por especialidade ou pesquise pelo nome.</p>
+        </header>
 
-          <div class="hero-actions">
-            <a href="profissionais.html" class="btn btn-primary" id="btn-comecar">
-              Começar agendamento
-            </a>
-            <a href="sobre.html" class="btn btn-outline">
-              Saiba mais
-            </a>
+        <form class="filtros" aria-label="Filtros de profissionais">
+          <!-- Barra de Pesquisa Principal -->
+          <div class="campo-form campo-pesquisa-principal">
+            <label for="filtro-nome">🔍 Pesquisar Profissional</label>
+            <input
+              type="search"
+              id="filtro-nome"
+              placeholder="Digite o nome do profissional..."
+              autocomplete="off"
+              aria-label="Campo de pesquisa de profissionais"
+            />
+            <div id="resultados-pesquisa" class="resultados-dropdown hidden"></div>
           </div>
 
-          <ul class="hero-list">
-            <li>✔ Interface simples e intuitiva</li>
-            <li>✔ Foco em acessibilidade e usabilidade</li>
-            <li>✔ Protótipo funcional para testes de IHC</li>
-          </ul>
+          <!-- Filtros Secundários -->
+          <div class="filtros-secundarios">
+            <div class="campo-form">
+              <label for="filtro-especialidade">Especialidade</label>
+              <select id="filtro-especialidade">
+                <option value="todas">Todas as especialidades</option>
+                <option value="cardiologia">Cardiologia</option>
+                <option value="pediatria">Pediatria</option>
+                <option value="dermatologia">Dermatologia</option>
+                <option value="clinico">Clínico geral</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn btn-outline" id="btn-limpar-filtros">
+              ✕ Limpar filtros
+            </button>
+          </div>
+        </form>
+
+        <!-- Carrossel Interativo (Scroll + Teclado) -->
+        <div class="carrossel-container">
+          <div class="carrossel-wrapper" tabindex="0" aria-label="Carrossel de profissionais - Use as setas do teclado ou arraste para navegar">
+            <div class="carrossel-track" id="carrossel-profissionais">
+              <!-- Cards serão inseridos aqui via JavaScript -->
+            </div>
+          </div>
         </div>
 
-        <div class="hero-side">
-          <div class="hero-illustration" aria-hidden="true">
-            <img
-              src="img/hero-saude.svg"
-              alt="Ilustração de profissional de saúde usando computador"
-            />
-          </div>
-
-          <div class="hero-card">
-            <p class="hero-card-title">Próximo agendamento</p>
-            <p class="hero-card-body">
-              Nenhum agendamento selecionado.
-            </p>
-          </div>
+        <div class="section-actions">
+          <a href="index.html" class="btn btn-outline">← Voltar ao Início</a>
         </div>
       </div>
     </section>
-
-    <!-- Landing only: sistema removido. Navegue para as páginas dedicadas via topo. -->
   </main>
 
   <footer class="footer">

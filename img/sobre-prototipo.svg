@@ -1,0 +1,16 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#e0e7ff" rx="12"/>
+  <!-- Pessoas analisando -->
+  <circle cx="100" cy="80" r="25" fill="#1e40af"/>
+  <rect x="80" y="110" width="40" height="60" fill="#1e40af" rx="4"/>
+  <circle cx="250" cy="80" r="25" fill="#1e40af" opacity="0.7"/>
+  <rect x="230" y="110" width="40" height="60" fill="#1e40af" opacity="0.7" rx="4"/>
+  <!-- Telas/Interface -->
+  <rect x="70" y="180" width="120" height="80" fill="#ffffff" stroke="#1e40af" stroke-width="2" rx="4"/>
+  <text x="130" y="220" text-anchor="middle" font-size="12" fill="#1e40af">Interface</text>
+  <rect x="210" y="180" width="120" height="80" fill="#ffffff" stroke="#1e40af" stroke-width="2" rx="4"/>
+  <text x="270" y="220" text-anchor="middle" font-size="12" fill="#1e40af">Protótipo</text>
+  <text x="200" y="295" text-anchor="middle" font-size="16" fill="#475569">
+    Prototipagem
+  </text>
+</svg>

@@ -1,0 +1,111 @@
+/* sobre.css — estilos específicos da página Sobre */
+
+/* Subtítulos das seções */
+.sobre-subtitle {
+  margin-top: var(--espacamento-3xl);
+  margin-bottom: var(--espacamento-lg);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  letter-spacing: -0.02em;
+  padding-bottom: var(--espacamento-sm);
+  border-bottom: 3px solid rgba(37, 99, 235, 0.2);
+}
+
+.sobre-description {
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espacamento-lg);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Grid de Personas */
+#personas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--espacamento-xl);
+  margin: var(--espacamento-2xl) 0;
+}
+
+/* Card de Persona */
+.card-persona {
+  background: linear-gradient(145deg, #e8edf5, var(--cor-fundo-alt));
+  border-radius: var(--radius-lg);
+  padding: var(--espacamento-xl);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-suave);
+  transition: all var(--transicao-normal);
+}
+
+.card-persona:hover { 
+  transform: translateY(-6px) scale(1.02); 
+  box-shadow: var(--shadow-hover);
+  border-color: var(--cor-primaria);
+}
+
+.card-persona h3 { 
+  margin: 0 0 var(--espacamento-sm); 
+  color: var(--cor-primaria); 
+  font-size: 1.15rem; 
+  font-weight: 700;
+}
+
+.persona-perfil { 
+  margin: 0 0 var(--espacamento-sm); 
+  font-size: 0.95rem; 
+  color: var(--cor-texto-suave); 
+  line-height: 1.6;
+}
+
+.persona-tipo { 
+  display: inline-block; 
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+  color: #fff; 
+  padding: var(--espacamento-xs) var(--espacamento-md); 
+  border-radius: var(--radius-full); 
+  font-size: 0.8rem; 
+  font-weight: 600; 
+  margin-bottom: var(--espacamento-sm);
+  box-shadow: var(--shadow-suave);
+  transition: var(--transicao-normal);
+}
+
+.persona-tipo:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-media);
+}
+
+/* Introdução da página Sobre */
+.sobre-intro { 
+  background: linear-gradient(145deg, #e8edf5, var(--cor-fundo-alt)); 
+  border-radius: var(--radius-lg); 
+  padding: var(--espacamento-2xl); 
+  border-left: 4px solid var(--cor-primaria); 
+  margin-bottom: var(--espacamento-2xl);
+  box-shadow: var(--shadow-media);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-left-width: 4px;
+  transition: all var(--transicao-normal);
+}
+
+.sobre-intro:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.sobre-intro p { 
+  margin: var(--espacamento-md) 0; 
+  line-height: 1.7; 
+  font-size: 1.05rem;
+}
+
+.sobre-list { 
+  margin: var(--espacamento-md) 0 var(--espacamento-md) var(--espacamento-lg); 
+  padding: 0; 
+  line-height: 1.8;
+}
+
+.sobre-list li { 
+  margin-bottom: var(--espacamento-xs); 
+  color: var(--cor-texto-suave); 
+}

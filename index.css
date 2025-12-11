@@ -1,0 +1,40 @@
+/* index.css — estilos específicos da página inicial */
+
+.hero { 
+  padding: 0; 
+}
+
+.hero .hero-text { 
+  max-width: 680px; 
+}
+
+.hero .hero-actions { 
+  margin-top: var(--espacamento-lg); 
+  display: flex; 
+  gap: var(--espacamento-md); 
+}
+
+.hero-list { 
+  margin-top: var(--espacamento-lg); 
+  padding-left: 0; 
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .hero { 
+    padding: var(--espacamento-lg) 0; 
+  }
+  
+  .hero .hero-side { 
+    display: none; 
+  }
+  
+  .hero .hero-text {
+    text-align: center;
+  }
+  
+  .hero .hero-actions {
+    justify-content: center;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,335 @@
+/* ======================================================================
+   AGENDAMENTOS.CSS - Página de agendamentos refeita
+   ====================================================================== */
+
+/* ======== SISTEMA DE ABAS ======== */
+.agendamentos-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-sm);
+  margin-bottom: var(--espacamento-xl);
+  border-bottom: 2px solid var(--cor-borda);
+  padding-bottom: 0;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+}
+
+.tab-btn:hover {
+  color: var(--cor-primaria);
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.tab-btn.active {
+  color: var(--cor-primaria);
+  border-bottom-color: var(--cor-primaria);
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* ======== CONTEÚDO DAS ABAS ======== */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ======== GRID DE AGENDAMENTO ======== */
+.agendamento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacamento-xl);
+  margin-bottom: var(--espacamento-xl);
+}
+
+/* ======== FORMULÁRIO ======== */
+.agendamento-form-wrapper {
+  background: var(--cor-fundo-alt);
+  border-radius: var(--radius-lg);
+  padding: var(--espacamento-2xl);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-media);
+  transition: all var(--transicao-normal);
+}
+
+.form-title {
+  margin: 0 0 var(--espacamento-lg);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.form-agendamento {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacamento-md);
+}
+
+.campo-form small {
+  display: block;
+  margin-top: var(--espacamento-xs);
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+}
+
+.btn-block {
+  width: 100%;
+  margin-top: var(--espacamento-md);
+}
+
+.mensagem-feedback {
+  margin-top: var(--espacamento-md);
+  padding: var(--espacamento-md);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.mensagem-feedback.sucesso {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.mensagem-feedback.erro {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/* ======== PREVIEW DA CONSULTA ======== */
+.consulta-preview {
+  background: var(--cor-fundo-alt);
+  border-radius: var(--radius-lg);
+  padding: var(--espacamento-2xl);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-media);
+  transition: all var(--transicao-normal);
+}
+
+.preview-title {
+  margin: 0 0 var(--espacamento-lg);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.preview-card {
+  background: linear-gradient(145deg, #e8edf5, var(--cor-fundo));
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  border-radius: var(--radius-lg);
+  padding: var(--espacamento-2xl);
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 8px rgba(30, 41, 59, 0.04);
+}
+
+.preview-empty {
+  text-align: center;
+  color: var(--cor-texto-suave);
+}
+
+.preview-icon {
+  font-size: 4rem;
+  margin-bottom: var(--espacamento-md);
+  opacity: 0.4;
+}
+
+.preview-empty p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.preview-info {
+  margin-top: var(--espacamento-lg);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px var(--espacamento-lg);
+  background: linear-gradient(145deg, #e8edf5, var(--cor-fundo));
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  border-radius: var(--radius);
+  margin-bottom: var(--espacamento-sm);
+  transition: all var(--transicao-normal);
+  box-shadow: var(--shadow-suave);
+}
+
+.info-row:hover {
+  border-color: var(--cor-primaria);
+  transform: translateX(6px);
+  box-shadow: var(--shadow-media);
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+.info-value {
+  font-weight: 700;
+  color: var(--cor-primaria);
+  font-size: 1.1rem;
+}
+
+/* ======== LISTA DE AGENDAMENTOS ======== */
+.lista-wrapper {
+  background: var(--cor-fundo-alt);
+  border-radius: var(--radius-lg);
+  padding: var(--espacamento-xl);
+  border: 2px solid var(--cor-borda);
+  box-shadow: var(--shadow-suave);
+}
+
+.lista-header {
+  margin-bottom: var(--espacamento-lg);
+  padding-bottom: var(--espacamento-md);
+  border-bottom: 2px solid var(--cor-borda);
+}
+
+.lista-header h3 {
+  margin: 0 0 var(--espacamento-xs);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.lista-header p {
+  margin: 0;
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+.lista-agendamentos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+}
+
+.lista-agendamentos li,
+.item-agendamento {
+  background: linear-gradient(145deg, #e8edf5, var(--cor-fundo));
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius-lg);
+  padding: var(--espacamento-xl);
+  box-shadow: var(--shadow-suave);
+  transition: all var(--transicao-normal);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+}
+
+.lista-agendamentos li:hover,
+.item-agendamento:hover {
+  border-color: var(--cor-primaria);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px) scale(1.01);
+}
+
+.item-agendamento strong {
+  color: var(--cor-primaria);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.item-agendamento span {
+  color: var(--cor-texto);
+  font-size: 0.95rem;
+}
+
+/* ======== ESTADOS VAZIOS ======== */
+.lista-empty,
+.timeline-empty {
+  text-align: center;
+  padding: var(--espacamento-2xl) var(--espacamento-lg);
+  display: none;
+}
+
+.lista-empty.show,
+.timeline-empty.show {
+  display: block;
+}
+
+.empty-icon,
+.timeline-empty-icon {
+  font-size: 4rem;
+  margin-bottom: var(--espacamento-md);
+  opacity: 0.4;
+}
+
+.lista-empty h4 {
+  margin: 0 0 var(--espacamento-sm);
+  font-size: 1.2rem;
+  color: var(--cor-texto);
+}
+
+.lista-empty p,
+.timeline-empty p {
+  margin: 0 0 var(--espacamento-lg);
+  color: var(--cor-texto-suave);
+}
+
+/* ======== RESPONSIVO ======== */
+@media (max-width: 968px) {
+  .agendamento-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .agendamentos-tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .tab-btn {
+    border-bottom: none;
+    border-left: 3px solid transparent;
+    margin-bottom: 0;
+    margin-left: -2px;
+    justify-content: center;
+  }
+
+  .tab-btn.active {
+    border-bottom: none;
+    border-left-color: var(--cor-primaria);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .agendamento-form-wrapper,
+  .timeline-wrapper,
+  .lista-wrapper {
+    padding: var(--espacamento-lg);
+  }
+}

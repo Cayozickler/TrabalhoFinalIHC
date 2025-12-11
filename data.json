@@ -1,0 +1,425 @@
+{
+  "site": {
+    "nome": "Agenda Saúde",
+    "descricao": "Protótipo funcional para agendamento de consultas médicas",
+    "versao": "2.1",
+    "ano": 2025,
+    "disciplina": "Interface Humano-Computador (IHC)",
+    "tecnologias": ["HTML5", "CSS3", "JavaScript", "localStorage"],
+    "acessibilidade": {
+      "modoAltoContraste": true,
+      "wcagLevel": "Level A",
+      "suporteSkipLink": true,
+      "suporteAria": true
+    }
+  },
+  "personas": [
+    {
+      "id": 1,
+      "nome": "Marcela Pereira Cravos",
+      "tipo": "Paciente",
+      "idade": 35,
+      "profissao": "Executiva",
+      "objetivos": [
+        "Agendar consultas de forma conveniente 24/7",
+        "Gerenciar múltiplos agendamentos em um só lugar",
+        "Receber lembretes automáticos"
+      ],
+      "dores": [
+        "Dificuldade em encontrar horários disponíveis",
+        "Esquecimento de consultas agendadas",
+        "Falta de integração com calendários pessoais"
+      ],
+      "prioridades": [
+        {
+          "rank": 1,
+          "titulo": "Conveniência e organização",
+          "descricao": "agendamento 24/7, múltiplas agendas em um só lugar"
+        },
+        {
+          "rank": 2,
+          "titulo": "Lembretes automáticos",
+          "descricao": "e-mail / SMS / push para paciente e dependentes"
+        },
+        {
+          "rank": 3,
+          "titulo": "Filtros avançados",
+          "descricao": "por especialidade, localização e convênio"
+        },
+        {
+          "rank": 4,
+          "titulo": "Visão familiar",
+          "descricao": "painel para gerenciar agendamentos de dependentes"
+        }
+      ],
+      "comportamento": {
+        "frequenciaUso": "Diária",
+        "dispositivoPrincipal": "Mobile",
+        "horarioPreferido": "Noites e fins de semana"
+      },
+      "imagem": "img/hero-saude.svg"
+    },
+    {
+      "id": 2,
+      "nome": "Cleiton Estevam Rodrigues",
+      "tipo": "Paciente",
+      "idade": 68,
+      "profissao": "Aposentado",
+      "objetivos": [
+        "Agendar consultas com facilidade",
+        "Entender claramente instruções do sistema",
+        "Acessar teleconsultas e atendimento domiciliar"
+      ],
+      "dores": [
+        "Dificuldade com interfaces complexas",
+        "Visão reduzida",
+        "Mobilidade limitada"
+      ],
+      "prioridades": [
+        {
+          "rank": 1,
+          "titulo": "Simplicidade e acessibilidade",
+          "descricao": "interface com fontes maiores e fluxo passo a passo"
+        },
+        {
+          "rank": 2,
+          "titulo": "Opções de teleconsulta",
+          "descricao": "teleconsulta e atendimento domiciliar visíveis e filtráveis"
+        },
+        {
+          "rank": 3,
+          "titulo": "Confirmação por SMS/telefone",
+          "descricao": "confirmação e suporte de fácil acionamento"
+        },
+        {
+          "rank": 4,
+          "titulo": "Instruções claras",
+          "descricao": "mapa e meios de transporte"
+        }
+      ],
+      "comportamento": {
+        "frequenciaUso": "Semanal",
+        "dispositivoPrincipal": "Desktop",
+        "horarioPreferido": "Manhã"
+      },
+      "imagem": "img/consulta-online.svg"
+    },
+    {
+      "id": 3,
+      "nome": "Marta Clara",
+      "tipo": "Profissional de Saúde",
+      "idade": 45,
+      "profissao": "Médica Cardiologista",
+      "objetivos": [
+        "Gerenciar agenda de forma eficiente",
+        "Reduzir no-shows de pacientes",
+        "Sincronizar com sistemas externos"
+      ],
+      "dores": [
+        "Agendamentos duplicados ou conflitantes",
+        "Muitos pacientes não confirmam presença",
+        "Falta de integração com sistemas de prontuário"
+      ],
+      "prioridades": [
+        {
+          "rank": 1,
+          "titulo": "Eficiência e controle",
+          "descricao": "confirmações automáticas e lembretes para reduzir no-shows"
+        },
+        {
+          "rank": 2,
+          "titulo": "Listas de espera",
+          "descricao": "opção rápida de encaixe em cancelamentos"
+        },
+        {
+          "rank": 3,
+          "titulo": "Sincronização de agendas",
+          "descricao": "integração com Google Calendar / sistemas de prontuário"
+        },
+        {
+          "rank": 4,
+          "titulo": "Interface móvel",
+          "descricao": "gerir agenda em trânsito"
+        }
+      ],
+      "comportamento": {
+        "frequenciaUso": "Diária",
+        "dispositivoPrincipal": "Mobile",
+        "horarioPreferido": "Manhã"
+      },
+      "imagem": "img/agenda-digital.svg"
+    },
+    {
+      "id": 4,
+      "nome": "Carlos André Lima",
+      "tipo": "Administrativo",
+      "idade": 52,
+      "profissao": "Gerente de Recepção",
+      "objetivos": [
+        "Reduzir erros de agendamento",
+        "Otimizar operações da clínica",
+        "Gerar relatórios de desempenho"
+      ],
+      "dores": [
+        "Erros de digitação e duplicação",
+        "Falta de visibilidade do fluxo de agendamentos",
+        "Dificuldade em treinar equipe"
+      ],
+      "prioridades": [
+        {
+          "rank": 1,
+          "titulo": "Otimização operacional",
+          "descricao": "reduzir erros de agendamento com validações e controles"
+        },
+        {
+          "rank": 2,
+          "titulo": "Relatórios e dashboards",
+          "descricao": "no-show, pico, volume por especialidade"
+        },
+        {
+          "rank": 3,
+          "titulo": "Treinamento e usabilidade",
+          "descricao": "para equipe de recepção"
+        },
+        {
+          "rank": 4,
+          "titulo": "Segurança e conformidade",
+          "descricao": "LGPD, armazenamento seguro"
+        }
+      ],
+      "comportamento": {
+        "frequenciaUso": "Diária",
+        "dispositivoPrincipal": "Desktop",
+        "horarioPreferido": "Período comercial"
+      },
+      "imagem": "img/sobre-prototipo.svg"
+    },
+    {
+      "id": 5,
+      "nome": "João Pedro Silva",
+      "tipo": "Paciente",
+      "idade": 72,
+      "profissao": "Baixa literacia digital",
+      "objetivos": [
+        "Agendar consultas por métodos simples",
+        "Receber assistência quando necessário",
+        "Acessar informações de forma clara"
+      ],
+      "dores": [
+        "Dificuldade com tecnologia digital",
+        "Preferência por atendimento humano",
+        "Medo de errar durante o agendamento"
+      ],
+      "prioridades": [
+        {
+          "rank": 1,
+          "titulo": "Design multimodal",
+          "descricao": "suporte por áudio, ícones visuais e fluxos curtos"
+        },
+        {
+          "rank": 2,
+          "titulo": "Interfaces de baixo esforço",
+          "descricao": "grandes botões e textos curtos; opção de agendar via áudio/WhatsApp"
+        },
+        {
+          "rank": 3,
+          "titulo": "Ajudas contextuais",
+          "descricao": "tooltips por voz, tutorial em áudio"
+        }
+      ],
+      "comportamento": {
+        "frequenciaUso": "Mensal",
+        "dispositivoPrincipal": "Nenhum (prefere presencialmente)",
+        "horarioPreferido": "Período comercial"
+      },
+      "imagem": "img/hero-saude.svg"
+    }
+  ],
+  "profissionais": [
+    {
+      "id": 1,
+      "nome": "Dra. Marta Clara",
+      "especialidade": "Cardiologia",
+      "crm": "123456",
+      "telefone": "(11) 98765-4321",
+      "email": "marta.clara@example.com",
+      "horarioAtendimento": {
+        "segunda": "08:00-12:00, 14:00-18:00",
+        "terca": "08:00-12:00, 14:00-18:00",
+        "quarta": "08:00-12:00, 14:00-18:00",
+        "quinta": "08:00-12:00, 14:00-18:00",
+        "sexta": "08:00-12:00, 14:00-17:00"
+      },
+      "teleconsultaDisponivel": true,
+      "atendimentoDomiciliar": false,
+      "convenioPrincipal": "Unimed, Bradesco",
+      "avaliacaoMedia": 4.8,
+      "numeroAvaliacoes": 152
+    },
+    {
+      "id": 2,
+      "nome": "Dr. Roberto Silva",
+      "especialidade": "Clínica Geral",
+      "crm": "234567",
+      "telefone": "(11) 97654-3210",
+      "email": "roberto.silva@example.com",
+      "horarioAtendimento": {
+        "segunda": "10:00-13:00, 15:00-20:00",
+        "terca": "10:00-13:00, 15:00-20:00",
+        "quarta": "10:00-13:00, 15:00-20:00",
+        "quinta": "10:00-13:00, 15:00-20:00",
+        "sexta": "10:00-13:00, 15:00-19:00"
+      },
+      "teleconsultaDisponivel": true,
+      "atendimentoDomiciliar": true,
+      "convenioPrincipal": "Qualicorp, Amil",
+      "avaliacaoMedia": 4.6,
+      "numeroAvaliacoes": 98
+    },
+    {
+      "id": 3,
+      "nome": "Dra. Fernanda Costa",
+      "especialidade": "Dermatologia",
+      "crm": "345678",
+      "telefone": "(11) 96543-2109",
+      "email": "fernanda.costa@example.com",
+      "horarioAtendimento": {
+        "segunda": "09:00-13:00, 14:00-18:00",
+        "terca": "09:00-13:00, 14:00-18:00",
+        "quarta": "Fechado",
+        "quinta": "09:00-13:00, 14:00-18:00",
+        "sexta": "09:00-13:00, 14:00-18:00"
+      },
+      "teleconsultaDisponivel": false,
+      "atendimentoDomiciliar": false,
+      "convenioPrincipal": "Unimed, SulAmérica",
+      "avaliacaoMedia": 4.9,
+      "numeroAvaliacoes": 187
+    },
+    {
+      "id": 4,
+      "nome": "Dr. André Martins",
+      "especialidade": "Ortopedia",
+      "crm": "456789",
+      "telefone": "(11) 95432-1098",
+      "email": "andre.martins@example.com",
+      "horarioAtendimento": {
+        "segunda": "08:00-12:00, 13:00-17:00",
+        "terca": "08:00-12:00, 13:00-17:00",
+        "quarta": "08:00-12:00, 13:00-17:00",
+        "quinta": "08:00-12:00, 13:00-17:00",
+        "sexta": "08:00-12:00, 13:00-16:00"
+      },
+      "teleconsultaDisponivel": true,
+      "atendimentoDomiciliar": true,
+      "convenioPrincipal": "Bradesco, Amil",
+      "avaliacaoMedia": 4.7,
+      "numeroAvaliacoes": 124
+    },
+    {
+      "id": 5,
+      "nome": "Dra. Paula Oliveira",
+      "especialidade": "Ginecologia",
+      "crm": "567890",
+      "telefone": "(11) 94321-0987",
+      "email": "paula.oliveira@example.com",
+      "horarioAtendimento": {
+        "segunda": "08:00-12:00, 14:00-18:30",
+        "terca": "08:00-12:00, 14:00-18:30",
+        "quarta": "08:00-12:00, 14:00-18:30",
+        "quinta": "Fechado",
+        "sexta": "08:00-12:00, 14:00-18:30"
+      },
+      "teleconsultaDisponivel": false,
+      "atendimentoDomiciliar": false,
+      "convenioPrincipal": "Unimed, Qualicorp",
+      "avaliacaoMedia": 4.8,
+      "numeroAvaliacoes": 167
+    },
+    {
+      "id": 6,
+      "nome": "Dr. Lucas Pereira",
+      "especialidade": "Oftalmologia",
+      "crm": "678901",
+      "telefone": "(11) 93210-9876",
+      "email": "lucas.pereira@example.com",
+      "horarioAtendimento": {
+        "segunda": "09:00-13:00, 15:00-19:00",
+        "terca": "09:00-13:00, 15:00-19:00",
+        "quarta": "09:00-13:00, 15:00-19:00",
+        "quinta": "09:00-13:00, 15:00-19:00",
+        "sexta": "09:00-13:00, 15:00-18:00"
+      },
+      "teleconsultaDisponivel": true,
+      "atendimentoDomiciliar": false,
+      "convenioPrincipal": "SulAmérica, Amil",
+      "avaliacaoMedia": 4.5,
+      "numeroAvaliacoes": 89
+    }
+  ],
+  "especialidades": [
+    {
+      "id": 1,
+      "nome": "Cardiologia",
+      "descricao": "Especialidade que trata do coração e sistema circulatório",
+      "icone": "❤️"
+    },
+    {
+      "id": 2,
+      "nome": "Clínica Geral",
+      "descricao": "Atendimento clínico abrangente para todas as idades",
+      "icone": "🩺"
+    },
+    {
+      "id": 3,
+      "nome": "Dermatologia",
+      "descricao": "Especialidade que trata de pele, cabelo e unhas",
+      "icone": "💆"
+    },
+    {
+      "id": 4,
+      "nome": "Ortopedia",
+      "descricao": "Especialidade que trata de ossos e articulações",
+      "icone": "🦴"
+    },
+    {
+      "id": 5,
+      "nome": "Ginecologia",
+      "descricao": "Especialidade que trata da saúde da mulher",
+      "icone": "👩‍⚕️"
+    },
+    {
+      "id": 6,
+      "nome": "Oftalmologia",
+      "descricao": "Especialidade que trata de olhos e visão",
+      "icone": "👁️"
+    }
+  ],
+  "conveniados": [
+    {
+      "id": 1,
+      "nome": "Unimed",
+      "cobertura": "100 especialidades"
+    },
+    {
+      "id": 2,
+      "nome": "Bradesco Saúde",
+      "cobertura": "95 especialidades"
+    },
+    {
+      "id": 3,
+      "nome": "Qualicorp",
+      "cobertura": "120 especialidades"
+    },
+    {
+      "id": 4,
+      "nome": "Amil",
+      "cobertura": "110 especialidades"
+    },
+    {
+      "id": 5,
+      "nome": "SulAmérica",
+      "cobertura": "105 especialidades"
+    }
+  ]
+}
